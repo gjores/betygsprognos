@@ -10,3 +10,60 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Student {
+  id                Int           @id // SchoolSoft `studentid`
+  socialNumber      String
+  firstName         String
+  lastName          String
+  sex               String?
+  class             String?
+  gradeClass        String?
+  gradeProgram      String?
+  gradeProgramCode  String?
+
+  enrollments       Enrollment[]
+}
+
+model Course {
+  id             String        @id // SchoolSoft `course` code
+  specialization String?
+  points         Int
+  category       String?
+
+  enrollments    Enrollment[]
+}
+
+model Enrollment {
+  id                Int      @id @default(autoincrement())
+
+  studentId         Int
+  student           Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  courseId          String
+  course            Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  // Row metadata
+  class             String?
+  gradeClass        String?
+  gradeProgram      String?
+  gradeProgramCode  String?
+
+  teacher           String?
+  examType          String?
+  printDate         DateTime?
+  startDate         DateTime?
+  endDate           DateTime?
+  year              Int?
+  status            Int?
+  extent            Int?
+  grade             String?
+  gradeDate         DateTime?
+  code              String?
+  comment           String?
+  courseWarning     Int?
+  courseDeviation   Int?
+  studentGrade      Int?
+  active            Boolean   @default(false)
+  showInCatalog     Boolean   @default(false)
+}

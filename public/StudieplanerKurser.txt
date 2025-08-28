@@ -1,0 +1,79 @@
+studentid	class	gradeclass	gradeprogram	gradeprogramcode	socialnumber	fname	lname	sex	course	specialization	points	category	teacher	examtype	printdate	startdate	enddate	year	status	extent	grade	gradedate	code	comment	coursewarning	coursedeviation	studentgrade	active	showincatalog
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	BIDBIT0		100	Inriktningsämne	PEvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	BILBIL0		100	Inriktningsämne	PEvO,MIvO	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	B	2024-06-09			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	BILBIL01B		100	Inriktningsämne	PEvO	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	B	2024-06-09			0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	BILFOM0		100	Inriktningsämne	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	DIGDIG01		100	Programfördjupning	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	ENGENG05		100	Gymnasiegemensamt ämne	INLI	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	ENGENG06		100	Gymnasiegemensamt ämne	INLI	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-07			0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	ENGENG07		100	Individuellt val	JEFF			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	ENTENR0		100	Individuellt val	ERHA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	D	2025-06-06			0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	ESTEST01		100	Programgemensamt ämne	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	GRAGRA01		100	Programfördjupning	PEvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-07			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	GRAGRI0		100	Programfördjupning	PEvO,MIvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	A	2025-06-07			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	GRAGRV0		100	Programfördjupning	PEvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	A	2025-06-07			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	HISHIS01B		100	Gymnasiegemensamt ämne	ERHA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	B	2024-06-10			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	HISHIS02B		100	Gymnasiegemensamt ämne	ERHA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	C	2025-06-06			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	IDRIDR01		100	Gymnasiegemensamt ämne	NESP	Högskoleförberedande program		2023-08-17	2025-06-10	1	3	0	B	2025-06-08			0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	KOSKOS0		50	Programgemensamt ämne	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	MATMAT01b		100	Gymnasiegemensamt ämne	NESP	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	A	2024-06-05			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	MEPMEI01		100	Programfördjupning	PEvO	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	A	2024-06-09			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	NAKNAK01B		100	Gymnasiegemensamt ämne	SASA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	D	2025-06-05			0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	RELREL01		50	Gymnasiegemensamt ämne	INLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	SAMSAM01B		100	Gymnasiegemensamt ämne	ERHA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	B	2024-06-10			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	SVESVE01		100	Gymnasiegemensamt ämne	EVLI	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	D	2024-06-10			0			1	1
+14832	GD23	GD23	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	SVESVE02		100	Gymnasiegemensamt ämne	EVLI	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	D	2025-06-07			0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	SVESVE03		100	Gymnasiegemensamt ämne	EVLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+14832	GD23	-	ESBIL2023GD	ESBIL	070511-1053	Kalle Testare	2	GYARES		100	Gymnasiearbete	JEFF,INLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	ANIANI01		100	Programfördjupning	PEvO,MIvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	A	2025-06-07			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	ANIANI02		100	Programfördjupning	PEvO,MIvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	A	2025-06-07			0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	BIDBIT0		100	Inriktningsämne	PEvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	BILBIL0		100	Inriktningsämne	PEvO,MIvO	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	A	2024-06-09			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	BILBIL01B		100	Inriktningsämne	PEvO	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	A	2024-06-09			0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	BILFOM0		100	Inriktningsämne	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	DESDES01		100	Programfördjupning	PEvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-07			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	DIGDIG01		100	Programfördjupning	BJLU,ERMA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	B	2024-06-10			0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	DIGDIG02		100	Programfördjupning	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	ENGENG05		100	Gymnasiegemensamt ämne	INLI	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	ENGENG06		100	Gymnasiegemensamt ämne	INLI	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	A	2025-06-07			0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	ENTENR0		100	Individuellt val	NESP			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	ESTEST01		100	Programgemensamt ämne	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	HISHIS01B		100	Gymnasiegemensamt ämne	ERHA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	HISHIS02B		100	Gymnasiegemensamt ämne	ERHA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	C	2025-06-06			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	IDRIDR01		100	Gymnasiegemensamt ämne	NESP	Högskoleförberedande program		2023-08-17	2025-06-10	1	3	0	E	2025-06-08			0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	KOSKOS0		50	Programgemensamt ämne	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	MATMAT01b		100	Gymnasiegemensamt ämne	NESP	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-05			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	MATMAT02b		100	Individuellt val	NESP	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	D	2025-06-08			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	NAKNAK01B		100	Gymnasiegemensamt ämne	SASA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-05			0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	RELREL01		50	Gymnasiegemensamt ämne	INLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	SAMSAM01B		100	Gymnasiegemensamt ämne	ERHA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	SVESVE01		100	Gymnasiegemensamt ämne	EVLI	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+15934	SG23	SG23	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	SVESVE02		100	Gymnasiegemensamt ämne	EVLI	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	D	2025-06-07			0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	SVESVE03		100	Gymnasiegemensamt ämne	EVLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+15934	SG23	-	ESBIL2023SG	ESBIL	080531-7910	Anna Test	1	GYARES		100	Gymnasiearbete	JEFF,INLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	BILBIL01A1		50	Inriktningsämne	PEvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-07			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	CADCAD01		50	Inriktningsämne	PEvO,MIvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	A	2025-06-07			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	DESDES01		100	Inriktningsämne	PEvO	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-07			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	DIGDIG01		100	Programfördjupning	BJLU,ERMA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	A	2024-06-10			0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	DIGDIG02		100	Programfördjupning	PEvO,MIvO			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	ENGENG05		100	Gymnasiegemensamt ämne	INLI	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	ENGENG06		100	Gymnasiegemensamt ämne	INLI	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-07			0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	ENGENG07		100	Individuellt val	JEFF			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	ENTENR0		100	Individuellt val	NESP			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	FYSFYS01A		150	Programgemensamt ämne	SASA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	E	2025-06-05			0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	HISHIS01a1		50	Gymnasiegemensamt ämne	INLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	IDRIDR01		100	Gymnasiegemensamt ämne	NESP	Högskoleförberedande program		2023-08-17	2025-06-10	1	3	0	A	2025-06-08			0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	KEMKEM01		100	Programgemensamt ämne	SASA			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	KOTKOS01		100	Inriktningsämne	ERMA			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	MATMAT01c		100	Gymnasiegemensamt ämne	NESP	Högskoleförberedande program		2023-08-17	2023-12-22	1	3	0	B	2024-01-26			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	MATMAT02c		100	Gymnasiegemensamt ämne	NESP	Högskoleförberedande program		2024-01-09	2024-06-13	1	3	0	C	2024-06-05			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	MATMAT03c		100	Gymnasiegemensamt ämne	SASA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	E	2025-06-05			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	PRRPRR01		100	Programfördjupning	BJLU,ERMA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	PRRPRR02		100	Programfördjupning	ERMA	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	C	2025-06-08			0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	RELREL01		50	Gymnasiegemensamt ämne	INLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	SAMSAM01B		100	Gymnasiegemensamt ämne	ERHA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	C	2024-06-10			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	SVESVE01		100	Gymnasiegemensamt ämne	EVLI	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	B	2024-06-10			0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	SVESVE02		100	Gymnasiegemensamt ämne	EVLI	Högskoleförberedande program		2024-08-15	2025-06-10	2	3	0	B	2025-06-07			0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	SVESVE03		100	Gymnasiegemensamt ämne	EVLI			2025-08-15	2026-06-01	3	2	0					0			1	1
+15935	SU23	SU23	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	TEKTEK01		150	Programgemensamt ämne	ERMA	Högskoleförberedande program		2023-08-17	2024-06-13	1	3	0	B	2024-06-10			0			1	1
+15935	SU23	-	TEDES2023SU	TEDES	070926-8676	Texas	Hammarström	2	GYARTE		100	Gymnasiearbete	JEFF,INLI			2025-08-15	2026-06-01	3	2	0					0			1	1
