@@ -1,4 +1,146 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+Last login: Thu Aug 28 10:52:08 on ttys002
+node -v%
+\Superhero\$ node -v
+v22.17.0
+\Superhero\$ npx create-next-app@latest betygsprognos
+✔ Would you like to use TypeScript? … No / Yes
+✔ Which linter would you like to use? › ESLint
+✔ Would you like to use Tailwind CSS? … No / Yes
+✔ Would you like your code inside a `src/` directory? … No / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes
+✔ Would you like to use Turbopack? (recommended) … No / Yes
+✔ Would you like to customize the import alias (`@/*` by default)? … No / Yes
+Creating a new Next.js app in /Users/petter.gjores/betygsprognos.
+
+Using npm.
+
+Initializing project with template: app-tw
+
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- @tailwindcss/postcss
+- tailwindcss
+- eslint
+- eslint-config-next
+- @eslint/eslintrc
+
+
+added 336 packages, and audited 337 packages in 18s
+
+138 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Initialized a git repository.
+
+Success! Created betygsprognos at /Users/petter.gjores/betygsprognos
+
+\Superhero\$ cd betygsprognos
+\Superhero\$ npx shadcn@latest init
+✔ Preflight checks.
+✔ Verifying framework. Found Next.js.
+✔ Validating Tailwind CSS config. Found v4.
+✔ Validating import alias.
+✔ Which color would you like to use as the base color? › Neutral
+✔ Writing components.json.
+✔ Checking registry.
+✔ Updating CSS variables in app/globals.css
+✔ Installing dependencies.
+✔ Created 1 file:
+  - lib/utils.ts
+
+Success! Project initialization completed.
+You may now add components.
+
+\Superhero\$ npm install prisma @prisma/client
+
+added 33 packages, and audited 375 packages in 14s
+
+146 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+\Superhero\$ npm install --save-dev ts-node
+
+added 14 packages, and audited 389 packages in 1s
+
+146 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+\Superhero\$ npx prisma init --datasource-provider sqlite
+Fetching latest updates for this subcommand...
+
+✔ Your Prisma schema was created at prisma/schema.prisma
+  You can now open it in your favorite editor.
+
+warn You already have a .gitignore file. Don't forget to add `.env` in it to not commit any private information.
+
+Next steps:
+1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started
+2. Run prisma db pull to turn your database schema into a Prisma schema.
+3. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+4. Tip: Explore how you can extend the ORM with scalable connection pooling, global caching, and a managed serverless Postgres database. Read: https://pris.ly/cli/beyond-orm
+
+  UW PICO 5.09                           New Buffer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               [ Read 43 lines ]
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell
+  UW PICO 5.09                        File: .gitignore
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring $
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
@@ -39,3 +181,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/lib/generated/prisma
