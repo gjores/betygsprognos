@@ -2,6 +2,7 @@ export const runtime = "nodejs"
 
 import prisma from "@/lib/prisma"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import FailTable from "./table"
 
 async function getData() {
   const enrollments = await prisma.enrollment.findMany({
@@ -15,6 +16,7 @@ async function getData() {
     class?: string | null
     totalFailPoints: number
     failCount: number
+    fails: { courseId: string; points: number; teacher: string | null; gradeDate: string | null }[]
   }>()
 
   for (const e of enrollments) {
@@ -27,11 +29,18 @@ async function getData() {
         class: e.student.class ?? null,
         totalFailPoints: 0,
         failCount: 0,
+        fails: [],
       })
     }
     const entry = map.get(key)!
     entry.totalFailPoints += points
     entry.failCount += 1
+    entry.fails.push({
+      courseId: e.course?.id ?? "",
+      points: points,
+      teacher: e.teacher ?? null,
+      gradeDate: e.gradeDate ? new Date(e.gradeDate).toISOString().slice(0, 10) : null,
+    })
   }
 
   const rows = Array.from(map.values()).filter(r => r.totalFailPoints > 150)
@@ -52,38 +61,10 @@ export default async function StudentsF150Page() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-gray-600 border-b">
-                    <th className="py-2 pr-4">Elev</th>
-                    <th className="py-2 pr-4">Klass</th>
-                    <th className="py-2 pr-4">F‑kurser</th>
-                    <th className="py-2 pr-4">F‑poäng</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.length === 0 ? (
-                    <tr>
-                      <td colSpan={4} className="py-6 text-gray-500">Inga elever matchar kriteriet just nu.</td>
-                    </tr>
-                  ) : (
-                    rows.map((r) => (
-                      <tr key={r.studentId} className="border-b last:border-0">
-                        <td className="py-2 pr-4">{r.name}</td>
-                        <td className="py-2 pr-4">{r.class ?? "-"}</td>
-                        <td className="py-2 pr-4">{r.failCount}</td>
-                        <td className="py-2 pr-4 font-medium">{r.totalFailPoints}</td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            </div>
+            <FailTable rows={rows} />
           </CardContent>
         </Card>
       </main>
     </div>
   )
 }
-
