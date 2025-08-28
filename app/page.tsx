@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   return (
@@ -15,9 +16,9 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <div className="flex items-center gap-3">
-              <Button>
-                <Link href="/import">Importera data</Link>
-              </Button>
+              <Link href="/import" className={cn(buttonVariants({ variant: "default" }))}>
+                Importera data
+              </Link>
               <Link href="/import" className="text-sm text-gray-600 hover:underline">
                 eller använd demo‑filen
               </Link>
