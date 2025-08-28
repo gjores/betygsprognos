@@ -1,7 +1,7 @@
 "use server"
 
 import prisma from "@/lib/prisma"
-import { importStudieplanerKurserFromPath, importStudieplanerKurserFromString, importStudieplanerKurserFromXMLString } from "@/lib/importer"
+import { importStudieplanerKurserFromPath, importStudieplanerKurserFromString, importStudieplanerKurserFromXMLString, computeRiskFromXML } from "@/lib/importer"
 import { decodeMaybeLatin1 } from "@/lib/encoding"
 
 export async function importSample() {
@@ -35,4 +35,46 @@ export async function importXMLFile(_prevState: any, formData: FormData) {
   const text = decodeMaybeLatin1(buf)
   const result = await importStudieplanerKurserFromXMLString(text)
   return { success: true, ...result }
+}
+
+// Huvudman: process multiple XML files with provided school names in one go
+export async function computeHeadOverview(_prevState: any, formData: FormData) {
+  const threshold = Number(formData.get("threshold") ?? 250)
+  const activeOnly = (formData.get("activeOnly") ?? "0") === "1"
+  const names = formData.getAll("schoolName").map((v) => String(v || "").trim())
+  const files = formData.getAll("schoolFile") as (File | null)[]
+  const results: { school: string; total: number; atRisk: number; pct: number }[] = []
+  const errors: string[] = []
+
+  const count = Math.max(names.length, files.length)
+  for (let i = 0; i < count; i++) {
+    const name = names[i] || `Skola ${i + 1}`
+    const file = files[i]
+    if (!file) {
+      continue
+    }
+    if (!file.name?.toLowerCase().endsWith(".xml")) {
+      errors.push(`${name}: fel filtyp (måste vara XML)`)
+      continue
+    }
+    const buf = await file.arrayBuffer()
+    const xml = decodeMaybeLatin1(buf)
+    const { total, atRisk } = computeRiskFromXML(xml, Number.isFinite(threshold) ? threshold : 250, activeOnly)
+    const pct = total > 0 ? Math.round((atRisk / total) * 1000) / 10 : 0
+    results.push({ school: name, total, atRisk, pct })
+  }
+
+  // Sort desc by pct
+  results.sort((a, b) => b.pct - a.pct)
+  return { success: true, results, errors }
+}
+
+// Danger: Clear all data in the local database
+export async function clearAllData(_prevState?: any, _formData?: FormData) {
+  await prisma.$transaction([
+    prisma.enrollment.deleteMany({}),
+    prisma.course.deleteMany({}),
+    prisma.student.deleteMany({}),
+  ])
+  return { ok: true }
 }

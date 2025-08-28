@@ -37,7 +37,7 @@ export default function ImportClient() {
         <p className="text-sm text-muted-foreground mb-4">
           Välj SchoolSoft‑export i XML‑format. ISO‑8859‑1 och UTF‑8 stöds.
         </p>
-        <form action={fileAction} encType="multipart/form-data" className="flex flex-col gap-3">
+        <form action={fileAction} className="flex flex-col gap-3">
           <div className="grid gap-2">
             <Label htmlFor="file">XML‑fil</Label>
             <input id="file" name="file" type="file" accept=".xml,application/xml,text/xml" />

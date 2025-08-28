@@ -233,3 +233,43 @@ export async function importStudieplanerKurserFromXMLString(xml: string) {
   const rows = parseXML(xml)
   return importRows(rows)
 }
+
+// Compute risk stats directly from XML without touching the DB
+export function computeRiskFromXML(
+  xml: string,
+  thresholdPoints: number,
+  activeOnly: boolean
+): { total: number; atRisk: number } {
+  const rows = parseXML(xml)
+  // group by studentid
+  const byStudent = new Map<number, Row[]>()
+  for (const r of rows) {
+    const sid = parseIntOrNull(r["studentid"]) ?? undefined
+    if (!sid) continue
+    if (!byStudent.has(sid)) byStudent.set(sid, [])
+    byStudent.get(sid)!.push(r)
+  }
+  let total = 0
+  let atRisk = 0
+  for (const [sid, rs] of byStudent) {
+    total++
+    let pts = 0
+    let crit = false
+    for (const r of rs) {
+      if ((r["grade"] || "").trim().toUpperCase() !== "F") continue
+      if (activeOnly && !parseBool(r["active"])) continue
+      const courseId = (r["course"] || "").trim().toUpperCase()
+      const p = parseIntOrNull(r["points"]) ?? 0
+      pts += p
+      const isCritical =
+        courseId.startsWith("SVESVE") ||
+        courseId.startsWith("SVASVA") ||
+        courseId.startsWith("ENGENG") ||
+        courseId === "MATMAT01B" ||
+        courseId === "MATMAT01C"
+      if (isCritical) crit = true
+    }
+    if (pts > thresholdPoints || crit) atRisk++
+  }
+  return { total, atRisk }
+}
