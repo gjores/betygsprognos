@@ -35,6 +35,7 @@ export default function Navbar() {
             <NavLink href="/import">Import</NavLink>
             <NavLink href="/demo">Demodata</NavLink>
             <NavLink href="/students/f150">Elever (F &gt; 150p)</NavLink>
+            <NavLink href="/students/svenska">Svenska/SVA (F)</NavLink>
           </nav>
         </div>
         <div className="flex items-center gap-2">
