@@ -115,7 +115,10 @@ export default async function Home({ searchParams }: { searchParams?: Record<str
               <Link href="/demo" className="text-sm text-gray-600 hover:underline">
                 förhandsgranska demodata
               </Link>
-            </div>
+                            <a href="/api/report" target="_blank" className={cn(buttonVariants({ variant: "secondary" }))}>
+                  Ladda ned rapport (PDF)
+                </a>
+              </div>
           </CardContent>
         </Card>
 
