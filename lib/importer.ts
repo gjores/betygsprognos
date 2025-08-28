@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma"
 import { readFile } from "node:fs/promises"
 import path from "node:path"
+import { decodeMaybeLatin1 } from "@/lib/encoding"
 
 type Row = Record<string, string>
 
@@ -24,7 +25,9 @@ function parseDateOrNull(v?: string): Date | null {
 function parseTSV(text: string): Row[] {
   const lines = text.split(/\r?\n/).filter((l) => l.trim().length > 0)
   if (lines.length === 0) return []
-  const headers = lines[0].split("\t").map((h) => h.trim().toLowerCase())
+  const headers = lines[0]
+    .split("\t")
+    .map((h) => h.replace(/^\uFEFF/, "").trim().toLowerCase())
   const rows: Row[] = []
   for (let i = 1; i < lines.length; i++) {
     const cols = lines[i].split("\t")
@@ -93,6 +96,7 @@ export async function importStudieplanerKurserFromString(text: string) {
     }
 
     // Enrollment row
+    const grade = (r["grade"] || "").trim().toUpperCase() || null
     enrollments.push({
       studentId: sid,
       courseId,
@@ -108,7 +112,7 @@ export async function importStudieplanerKurserFromString(text: string) {
       year: parseIntOrNull(r["year"]),
       status: parseIntOrNull(r["status"]),
       extent: parseIntOrNull(r["extent"]),
-      grade: r["grade"] || null,
+      grade,
       gradeDate: parseDateOrNull(r["gradedate"]),
       code: r["code"] || null,
       comment: r["comment"] || null,
@@ -144,7 +148,6 @@ export async function importStudieplanerKurserFromString(text: string) {
 export async function importStudieplanerKurserFromPath(relativePath = "public/StudieplanerKurser.txt") {
   const full = path.join(process.cwd(), relativePath)
   const buf = await readFile(full)
-  const text = buf.toString("utf8")
+  const text = decodeMaybeLatin1(buf)
   return importStudieplanerKurserFromString(text)
 }
-

@@ -2,11 +2,11 @@
 
 import { useFormStatus } from "react-dom"
 import { useActionState } from "react"
-import { importSampleAction, uploadFileAction } from "@/app/actions"
+import { importPasted } from "@/app/actions"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Textarea } from "@/components/ui/textarea"
 
 type ImportState = {
   success?: boolean
@@ -26,62 +26,48 @@ function SubmitButton({ children }: { children: React.ReactNode }) {
 }
 
 export default function ImportClient() {
-  const [uploadState, uploadAction] = useActionState<ImportState, FormData>(uploadFileAction, {})
-  const [sampleState, sampleAction] = useActionState<ImportState, FormData>(importSampleAction, {})
+  // Demo-import disabled; linking to /demo instead
+  const [pasteState, pasteAction] = useActionState<ImportState, FormData>(importPasted, {})
 
   return (
     <>
+      {/* File upload removed per request */}
+
       <section className="w-full">
-        <h1 className="text-2xl font-semibold mb-2">Ladda upp SchoolSoft‑fil</h1>
-        <p className="text-sm text-muted-foreground mb-4">Välj en .txt‑fil exporterad från SchoolSoft.</p>
-
-        <form action={uploadAction} className="flex flex-col gap-3">
-          <div className="grid gap-2">
-            <Label htmlFor="file">Fil</Label>
-            <Input id="file" type="file" name="file" accept=".txt,text/plain" required />
-          </div>
-          <SubmitButton>Ladda upp</SubmitButton>
-        </form>
-
-        {(uploadState?.success || uploadState?.error) && (
-          <Alert className="mt-4 border-green-200 bg-green-50">
-            {uploadState.error ? (
-              <>
-                <AlertTitle className="text-red-700">Fel</AlertTitle>
-                <AlertDescription className="text-red-700">{uploadState.error}</AlertDescription>
-              </>
-            ) : (
-              <>
-                <AlertTitle className="text-green-800">Import klart</AlertTitle>
-                <AlertDescription className="text-green-800">
-                  Studenter: {uploadState.students ?? 0}, Kurser: {uploadState.courses ?? 0}, Läsningar: {uploadState.enrollments ?? 0}
-                </AlertDescription>
-              </>
-            )}
-          </Alert>
-        )}
+        <h2 className="text-xl font-semibold mt-8 mb-2">Visa demodata</h2>
+        <p className="text-sm text-muted-foreground mb-4">
+          Förhandsgranska filen <code>public/StudieplanerKurser.txt</code> i en egen vy.
+        </p>
+        <a href="/demo" className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm font-medium hover:bg-black/80">
+          Öppna demodata
+        </a>
       </section>
 
       <section className="w-full">
-        <h2 className="text-xl font-semibold mt-8 mb-2">Eller importera demo-fil</h2>
+        <h2 className="text-xl font-semibold mt-8 mb-2">Klistra in SchoolSoft‑data</h2>
         <p className="text-sm text-muted-foreground mb-4">
-          Använd <code>public/StudieplanerKurser.txt</code> som exempeldata.
+          Klistra in hela TSV‑innehållet från SchoolSoft (inklusive header‑raden som börjar med <code>studentid</code>).
         </p>
-        <form action={sampleAction} className="mt-2">
-          <SubmitButton>Importera demo‑fil</SubmitButton>
+        <form action={pasteAction} className="flex flex-col gap-3">
+          <div className="grid gap-2">
+            <Label htmlFor="data">Data</Label>
+            <Textarea id="data" name="data" spellCheck={false} placeholder="Klistra in TSV här…" />
+          </div>
+          <SubmitButton>Importera inklistrad data</SubmitButton>
         </form>
-        {(sampleState?.success || sampleState?.error) && (
-          <Alert className="mt-4 border-blue-200 bg-blue-50">
-            {sampleState.error ? (
+
+        {(pasteState?.success || pasteState?.error) && (
+          <Alert className="mt-4 border-purple-200 bg-purple-50">
+            {pasteState.error ? (
               <>
                 <AlertTitle className="text-red-700">Fel</AlertTitle>
-                <AlertDescription className="text-red-700">{sampleState.error}</AlertDescription>
+                <AlertDescription className="text-red-700">{pasteState.error}</AlertDescription>
               </>
             ) : (
               <>
-                <AlertTitle className="text-blue-800">Import klart</AlertTitle>
-                <AlertDescription className="text-blue-800">
-                  Studenter: {sampleState.students ?? 0}, Kurser: {sampleState.courses ?? 0}, Läsningar: {sampleState.enrollments ?? 0}
+                <AlertTitle className="text-purple-800">Import klart</AlertTitle>
+                <AlertDescription className="text-purple-800">
+                  Studenter: {pasteState.students ?? 0}, Kurser: {pasteState.courses ?? 0}, Läsningar: {pasteState.enrollments ?? 0}
                 </AlertDescription>
               </>
             )}

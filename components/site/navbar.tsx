@@ -31,7 +31,10 @@ export default function Navbar() {
           </Link>
           <nav className="hidden gap-1 md:flex">
             <NavLink href="/">Översikt</NavLink>
+            <NavLink href="/students">Elever</NavLink>
             <NavLink href="/import">Import</NavLink>
+            <NavLink href="/demo">Demodata</NavLink>
+            <NavLink href="/students/f150">Elever (F &gt; 150p)</NavLink>
           </nav>
         </div>
         <div className="flex items-center gap-2">
