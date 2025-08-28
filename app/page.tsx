@@ -1,30 +1,29 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full max-w-xl">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <section className="w-full">
-          <h1 className="text-2xl font-semibold mb-2">Betygsprognos</h1>
-          <p className="text-sm text-muted-foreground mb-4">
-            Importera en SchoolSoft-export för att komma igång.
-          </p>
-          <Link
-            href="/import"
-            className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm font-medium hover:bg-black/80"
-          >
-            Gå till import
-          </Link>
-        </section>
+    <div className="font-sans min-h-screen p-8 sm:p-20 bg-gray-50">
+      <main className="mx-auto w-full max-w-3xl">
+        <Card>
+          <CardHeader>
+            <CardTitle>Betygsprognos</CardTitle>
+            <CardDescription>
+              Ladda upp SchoolSoft‑exporter, lagra dem lokalt och få en tydlig prognos.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center gap-3">
+              <Button>
+                <Link href="/import">Importera data</Link>
+              </Button>
+              <Link href="/import" className="text-sm text-gray-600 hover:underline">
+                eller använd demo‑filen
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
       </main>
     </div>
   );

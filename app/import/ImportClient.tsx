@@ -3,6 +3,10 @@
 import { useFormStatus } from "react-dom"
 import { useActionState } from "react"
 import { importSampleAction, uploadFileAction } from "@/app/actions"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 type ImportState = {
   success?: boolean
@@ -15,13 +19,9 @@ type ImportState = {
 function SubmitButton({ children }: { children: React.ReactNode }) {
   const { pending } = useFormStatus()
   return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm font-medium disabled:opacity-50 hover:bg-black/80"
-    >
+    <Button type="submit" disabled={pending}>
       {pending ? "Arbetar…" : children}
-    </button>
+    </Button>
   )
 }
 
@@ -32,32 +32,33 @@ export default function ImportClient() {
   return (
     <>
       <section className="w-full">
-        <h1 className="text-2xl font-semibold mb-2">Ladda upp SchoolSoft-fil</h1>
-        <p className="text-sm text-muted-foreground mb-4">
-          Välj en <code>.txt</code>-fil exporterad från SchoolSoft.
-        </p>
+        <h1 className="text-2xl font-semibold mb-2">Ladda upp SchoolSoft‑fil</h1>
+        <p className="text-sm text-muted-foreground mb-4">Välj en .txt‑fil exporterad från SchoolSoft.</p>
 
-        <form action={uploadAction} className="flex flex-col gap-4">
-          <input
-            type="file"
-            name="file"
-            accept=".txt,text/plain"
-            required
-            className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
-          />
+        <form action={uploadAction} className="flex flex-col gap-3">
+          <div className="grid gap-2">
+            <Label htmlFor="file">Fil</Label>
+            <Input id="file" type="file" name="file" accept=".txt,text/plain" required />
+          </div>
           <SubmitButton>Ladda upp</SubmitButton>
         </form>
 
         {(uploadState?.success || uploadState?.error) && (
-          <div className="mt-3 text-sm">
+          <Alert className="mt-4 border-green-200 bg-green-50">
             {uploadState.error ? (
-              <p className="text-red-600">Fel: {uploadState.error}</p>
+              <>
+                <AlertTitle className="text-red-700">Fel</AlertTitle>
+                <AlertDescription className="text-red-700">{uploadState.error}</AlertDescription>
+              </>
             ) : (
-              <p className="text-green-700">
-                Import klart. Studenter: {uploadState.students ?? 0}, Kurser: {uploadState.courses ?? 0}, Läsningar: {uploadState.enrollments ?? 0}
-              </p>
+              <>
+                <AlertTitle className="text-green-800">Import klart</AlertTitle>
+                <AlertDescription className="text-green-800">
+                  Studenter: {uploadState.students ?? 0}, Kurser: {uploadState.courses ?? 0}, Läsningar: {uploadState.enrollments ?? 0}
+                </AlertDescription>
+              </>
             )}
-          </div>
+          </Alert>
         )}
       </section>
 
@@ -66,19 +67,25 @@ export default function ImportClient() {
         <p className="text-sm text-muted-foreground mb-4">
           Använd <code>public/StudieplanerKurser.txt</code> som exempeldata.
         </p>
-        <form action={sampleAction}>
-          <SubmitButton>Importera demo-fil</SubmitButton>
+        <form action={sampleAction} className="mt-2">
+          <SubmitButton>Importera demo‑fil</SubmitButton>
         </form>
         {(sampleState?.success || sampleState?.error) && (
-          <div className="mt-3 text-sm">
+          <Alert className="mt-4 border-blue-200 bg-blue-50">
             {sampleState.error ? (
-              <p className="text-red-600">Fel: {sampleState.error}</p>
+              <>
+                <AlertTitle className="text-red-700">Fel</AlertTitle>
+                <AlertDescription className="text-red-700">{sampleState.error}</AlertDescription>
+              </>
             ) : (
-              <p className="text-green-700">
-                Import klart. Studenter: {sampleState.students ?? 0}, Kurser: {sampleState.courses ?? 0}, Läsningar: {sampleState.enrollments ?? 0}
-              </p>
+              <>
+                <AlertTitle className="text-blue-800">Import klart</AlertTitle>
+                <AlertDescription className="text-blue-800">
+                  Studenter: {sampleState.students ?? 0}, Kurser: {sampleState.courses ?? 0}, Läsningar: {sampleState.enrollments ?? 0}
+                </AlertDescription>
+              </>
             )}
-          </div>
+          </Alert>
         )}
       </section>
     </>

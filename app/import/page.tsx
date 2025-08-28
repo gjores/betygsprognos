@@ -1,21 +1,20 @@
 export const runtime = "nodejs"
-import Image from "next/image";
 import ImportClient from "./ImportClient";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 export default function ImportPage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full max-w-xl">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-
-        <ImportClient />
+    <div className="font-sans min-h-screen p-8 sm:p-20 bg-gray-50">
+      <main className="mx-auto w-full max-w-3xl">
+        <Card>
+          <CardHeader>
+            <CardTitle>Importera data</CardTitle>
+            <CardDescription>Välj en SchoolSoft‑export eller använd demo‑filen.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ImportClient />
+          </CardContent>
+        </Card>
       </main>
     </div>
   );
