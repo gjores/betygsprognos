@@ -2,7 +2,7 @@
 
 import { useFormStatus } from "react-dom"
 import { useActionState } from "react"
-import { importPasted } from "@/app/actions"
+import { importPasted, importXMLFile } from "@/app/actions"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -28,10 +28,41 @@ function SubmitButton({ children }: { children: React.ReactNode }) {
 export default function ImportClient() {
   // Demo-import disabled; linking to /demo instead
   const [pasteState, pasteAction] = useActionState<ImportState, FormData>(importPasted, {})
+  const [fileState, fileAction] = useActionState<ImportState, FormData>(importXMLFile, {})
 
   return (
     <>
-      {/* File upload removed per request */}
+      <section className="w-full">
+        <h2 className="text-xl font-semibold mb-2">Ladda upp XML‑fil</h2>
+        <p className="text-sm text-muted-foreground mb-4">
+          Välj SchoolSoft‑export i XML‑format. ISO‑8859‑1 och UTF‑8 stöds.
+        </p>
+        <form action={fileAction} encType="multipart/form-data" className="flex flex-col gap-3">
+          <div className="grid gap-2">
+            <Label htmlFor="file">XML‑fil</Label>
+            <input id="file" name="file" type="file" accept=".xml,application/xml,text/xml" />
+          </div>
+          <SubmitButton>Importera XML</SubmitButton>
+        </form>
+
+        {(fileState?.success || fileState?.error) && (
+          <Alert className="mt-4 border-purple-200 bg-purple-50">
+            {fileState.error ? (
+              <>
+                <AlertTitle className="text-red-700">Fel</AlertTitle>
+                <AlertDescription className="text-red-700">{fileState.error}</AlertDescription>
+              </>
+            ) : (
+              <>
+                <AlertTitle className="text-purple-800">Import klart</AlertTitle>
+                <AlertDescription className="text-purple-800">
+                  Studenter: {fileState.students ?? 0}, Kurser: {fileState.courses ?? 0}, Läsningar: {fileState.enrollments ?? 0}
+                </AlertDescription>
+              </>
+            )}
+          </Alert>
+        )}
+      </section>
 
       <section className="w-full">
         <h2 className="text-xl font-semibold mt-8 mb-2">Visa demodata</h2>

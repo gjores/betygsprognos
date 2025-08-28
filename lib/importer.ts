@@ -40,8 +40,80 @@ function parseTSV(text: string): Row[] {
   return rows
 }
 
-export async function importStudieplanerKurserFromString(text: string) {
-  const rows = parseTSV(text)
+function unescapeXmlEntities(s: string): string {
+  return s
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+}
+
+function parseXML(xml: string): Row[] {
+  const rows: Row[] = []
+  // Normalize newlines and trim
+  const x = xml.replace(/\r\n?/g, "\n").trim()
+  const entryRe = /<studentprogramcourse>([\s\S]*?)<\/studentprogramcourse>/gi
+  const fields = [
+    "studentid",
+    "class",
+    "gradeclass",
+    "gradeprogram",
+    "gradeprogramcode",
+    "socialnumber",
+    "fname",
+    "lname",
+    "sex",
+    "course",
+    "specialization",
+    "points",
+    "category",
+    // teacher can repeat; we'll join with comma
+    "teacher",
+    "examtype",
+    "startdate",
+    "enddate",
+    "year",
+    "status",
+    "extent",
+    "grade",
+    "gradedate",
+    "code",
+    "comment",
+    "coursewarning",
+    "coursedeviation",
+    "studentgrade",
+    "active",
+    "showincatalog",
+    // present in sample but unused downstream
+    "printdate",
+  ] as const
+
+  let m: RegExpExecArray | null
+  while ((m = entryRe.exec(x)) !== null) {
+    const body = m[1]
+    const row: Row = {}
+    for (const f of fields) {
+      if (f === "teacher") {
+        const rx = new RegExp(`<${f}>([\\s\\S]*?)<\\/${f}>`, "gi")
+        const vals: string[] = []
+        let mm: RegExpExecArray | null
+        while ((mm = rx.exec(body)) !== null) {
+          vals.push(unescapeXmlEntities(mm[1].trim()))
+        }
+        if (vals.length) row[f] = vals.join(", ")
+        continue
+      }
+      const rx = new RegExp(`<${f}>([\\s\\S]*?)<\\/${f}>`, "i")
+      const mm = rx.exec(body)
+      if (mm) row[f] = unescapeXmlEntities(mm[1].trim())
+    }
+    rows.push(row)
+  }
+  return rows
+}
+
+async function importRows(rows: Row[]) {
   if (rows.length === 0) return { students: 0, courses: 0, enrollments: 0 }
 
   const studentMap = new Map<number, {
@@ -145,9 +217,19 @@ export async function importStudieplanerKurserFromString(text: string) {
   }
 }
 
+export async function importStudieplanerKurserFromString(text: string) {
+  const rows = parseTSV(text)
+  return importRows(rows)
+}
+
 export async function importStudieplanerKurserFromPath(relativePath = "public/StudieplanerKurser.txt") {
   const full = path.join(process.cwd(), relativePath)
   const buf = await readFile(full)
   const text = decodeMaybeLatin1(buf)
   return importStudieplanerKurserFromString(text)
+}
+
+export async function importStudieplanerKurserFromXMLString(xml: string) {
+  const rows = parseXML(xml)
+  return importRows(rows)
 }
