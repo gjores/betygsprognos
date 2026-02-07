@@ -1,9 +1,9 @@
 import prisma from "../lib/prisma"
 
 async function main() {
-  // @ts-ignore
+  // @ts-expect-error prisma has dynamic keys at runtime
   console.log(Object.keys(prisma))
-  // @ts-ignore
+  // @ts-expect-error prisma has dynamic keys at runtime
   console.log(typeof prisma.enrollment)
 }
 

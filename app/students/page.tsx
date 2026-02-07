@@ -48,7 +48,7 @@ export default async function StudentsPage({ searchParams }: { searchParams?: Re
   const studentIds = students.map(s => s.id)
 
   // Compute F points per student
-  let fPointsByStudent = new Map<number, { fPoints: number; fCount: number }>()
+  const fPointsByStudent = new Map<number, { fPoints: number; fCount: number }>()
   if (studentIds.length) {
     const whereEnroll: any = { studentId: { in: studentIds }, grade: "F" }
     if (activeOnly) whereEnroll.active = true
